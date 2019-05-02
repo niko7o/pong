@@ -4,8 +4,8 @@
   "description": "1972 pong remade with ES6 and lots of ❤",
   "main": "index.html",
   "scripts": {
-    "build:dev": "rollup --config rollup.config.dev.js --watch",
-    "build:prod": "rollup --config rollup.config.prod.js"
+    "build:dev": "rollup --config ./configs/rollup.config.dev.js --watch",
+    "build:prod": "rollup --config ./configs/rollup.config.prod.js"
   },
   "author": "nikoto",
   "license": "ISC",
