@@ -5,7 +5,7 @@ class Ball {
         this.ctx = Canvas.context;
         this.x = Canvas.width / 2;
         this.y = Canvas.height / 2;
-        this.size = 20;
+        this.size = 10;
     }
 
     draw(color) {

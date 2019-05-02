@@ -22,7 +22,7 @@
             this.ctx = Canvas$1.context;
             this.x = Canvas$1.width / 2;
             this.y = Canvas$1.height / 2;
-            this.size = 20;
+            this.size = 10;
         }
 
         draw(color) {
@@ -36,7 +36,35 @@
 
     var Ball$1 = new Ball();
 
+    class Game {
+        constructor() {
+            this.state = 'off'; // paused, running
+            this.startListeners();
+        }
+
+        startListeners() {
+            document.addEventListener("keydown", event => {
+                switch(event.key) {
+                    case 'p':   this.pause();
+                                break;
+                }
+            });
+        }
+
+        pause() {
+            this.state !== 'paused' 
+            ? this.state = 'paused' 
+            : this.state = 'running';
+            
+            console.log(this.state);
+        }
+    }
+
+    new Game();
+
     Canvas$1.draw('#000');
     Ball$1.draw('#0F0');
+
+    console.log('Reloaded @ ' + Date.now());
 
 }());
