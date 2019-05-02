@@ -37,6 +37,6 @@
     var Ball$1 = new Ball();
 
     Canvas$1.draw('#000');
-    Ball$1.draw('#FFF');
+    Ball$1.draw('#0F0');
 
 }());

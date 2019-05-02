@@ -1,7 +1,7 @@
 export default {
     input: 'src/game.js',
     output: {
-        file: 'dist/bundle.js',
+        file: 'bundle.js',
         format: 'iife'
     },
     cache: false
