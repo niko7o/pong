@@ -1,8 +1,6 @@
-import Canvas from './Canvas';
-
 class Player {
-    constructor(x = 0, y = 0) {
-        this.ctx = Canvas.context;
+    constructor(x = 0, y = 0, canvas) {
+        this.ctx = canvas.ctx;
         this.x = x;
         this.y = y;
         this.width = 8;
@@ -19,4 +17,4 @@ class Player {
     }
 }
 
-export default new Player();
+export default Player;

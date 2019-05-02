@@ -1,10 +1,8 @@
-import Canvas from './Canvas';
-
 class Ball {
-    constructor() {
-        this.ctx = Canvas.context;
-        this.x = Canvas.width / 2;
-        this.y = Canvas.height / 2;
+    constructor(canvas) {
+        this.ctx = canvas.ctx;
+        this.x = canvas.width / 2;
+        this.y = canvas.height / 2;
         this.size = 8;
     }
 
@@ -17,4 +15,4 @@ class Ball {
     }
 }
 
-export default new Ball();
+export default Ball;

@@ -4,24 +4,22 @@
     class Canvas {
         constructor() {
             this.canvas = document.getElementById('pong');
-            this.context = this.canvas.getContext('2d');
+            this.ctx = this.canvas.getContext('2d');
             this.width = this.canvas.width;
             this.height = this.canvas.height;
         }
 
         draw(color) {
-            this.context.fillStyle = color;
-            this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.fillStyle = color;
+            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         }
     }
 
-    var Canvas$1 = new Canvas();
-
     class Ball {
-        constructor() {
-            this.ctx = Canvas$1.context;
-            this.x = Canvas$1.width / 2;
-            this.y = Canvas$1.height / 2;
+        constructor(canvas) {
+            this.ctx = canvas.ctx;
+            this.x = canvas.width / 2;
+            this.y = canvas.height / 2;
             this.size = 8;
         }
 
@@ -34,37 +32,9 @@
         }
     }
 
-    var Ball$1 = new Ball();
-
-    class Game {
-        constructor() {
-            this.state = 'off'; // paused, running
-            this.startListeners();
-        }
-
-        startListeners() {
-            document.addEventListener("keydown", event => {
-                switch(event.key) {
-                    case 'p':   this.pause();
-                                break;
-                }
-            });
-        }
-
-        pause() {
-            this.state !== 'paused' 
-            ? this.state = 'paused' 
-            : this.state = 'running';
-            
-            console.log(this.state);
-        }
-    }
-
-    new Game();
-
     class Player {
-        constructor(x = 0, y = 0) {
-            this.ctx = Canvas$1.context;
+        constructor(x = 0, y = 0, canvas) {
+            this.ctx = canvas.ctx;
             this.x = x;
             this.y = y;
             this.width = 8;
@@ -81,13 +51,23 @@
         }
     }
 
-    var Player$1 = new Player();
+    // const game = new Game();
+    const canvas = new Canvas();
+    const ball = new Ball(canvas);
 
-    Canvas$1.draw('#000');
-    Ball$1.draw('#0F0');
+    const players = [
+        new Player(10, canvas.height / 2 - 15, canvas),
+        new Player(canvas.width - 10 - 8, canvas.height / 2 - 15, canvas)
+    ];
 
-    const p1 = new Player$1(10, 20);
-    p1.draw('#0F0');
+    function drawAllEntities() {
+        canvas.draw('#000');
+        ball.draw('#0F0');
+        players.forEach(player => player.draw('#0F0'));
+    }
+
+    drawAllEntities();
+
 
     console.log('Reloaded @ ' + new Date);
 
