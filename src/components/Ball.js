@@ -1,13 +1,19 @@
-class Ball extends Rectangle {
-    constructor(ctx) {
-        super(10, 10);
-        this.vel = new Vector;
-        this.ctx = ctx;
+import Canvas from './Canvas';
+
+class Ball {
+    constructor() {
+        this.ctx = Canvas.context;
+        this.x = Canvas.width / 2;
+        this.y = Canvas.height / 2;
+        this.size = 20;
     }
 
-    draw() {
-        this.ctx.fillStyle = '#fff';
-        this.ctx.fillRect(ball.pos.x, ball.pos.y, 10, 10)
+    draw(color) {
+        this.ctx.fillStyle = color;
+        this.ctx.fillRect(
+            this.x - this.size, this.y - this.size, 
+            this.size, this.size
+        )
     }
 }
 
