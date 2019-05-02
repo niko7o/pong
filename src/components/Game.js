@@ -7,8 +7,9 @@ class Game {
     startListeners() {
         document.addEventListener("keydown", event => {
             switch(event.key) {
-                case 'p':   this.pause();
-                            break;
+                case 'p':
+                    this.pause();
+                    break;
             }
         });
     }

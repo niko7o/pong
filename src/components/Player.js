@@ -6,6 +6,24 @@ class Player {
         this.width = 8;
         this.height = 30;
         this.score = 0;
+        this.vel = 3;
+        this.moveListeners();
+    }
+
+    get left() {
+        return this.x - this.width / 2;
+    }
+
+    get right() {
+        return this.x + this.width / 2;
+    }
+
+    get top() {
+        return this.y - this.height / 2;
+    }
+
+    get bottom() {
+        return this.y + this.height / 2;
     }
 
     draw(color) {
@@ -14,6 +32,19 @@ class Player {
             this.x, this.y, 
             this.width, this.height
         )
+    }
+
+    moveListeners() {
+        document.addEventListener("keydown", event => {
+            switch(event.key) {
+                case 'ArrowDown':
+                    this.y += 1;
+                    break;
+                case 'ArrowUp':
+                    this.y -= 1;
+                    break;
+            }
+        });
     }
 }
 
