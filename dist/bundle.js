@@ -22,7 +22,7 @@
             this.ctx = Canvas$1.context;
             this.x = Canvas$1.width / 2;
             this.y = Canvas$1.height / 2;
-            this.size = 10;
+            this.size = 8;
         }
 
         draw(color) {
@@ -62,9 +62,33 @@
 
     new Game();
 
+    class Player {
+        constructor(x = 0, y = 0) {
+            this.ctx = Canvas$1.context;
+            this.x = x;
+            this.y = y;
+            this.width = 8;
+            this.height = 30;
+            this.score = 0;
+        }
+
+        draw(color) {
+            this.ctx.fillStyle = color;
+            this.ctx.fillRect(
+                this.x, this.y, 
+                this.width, this.height
+            );
+        }
+    }
+
+    var Player$1 = new Player();
+
     Canvas$1.draw('#000');
     Ball$1.draw('#0F0');
 
-    console.log('Reloaded @ ' + Date.now());
+    const p1 = new Player$1(10, 20);
+    p1.draw('#0F0');
+
+    console.log('Reloaded @ ' + new Date);
 
 }());

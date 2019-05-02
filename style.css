@@ -6,4 +6,23 @@ body {
     align-items: center;
     width: 100%;
     height: 100vh;
+    background-color: black;
+}
+
+.gameboy {
+    position: relative;
+    width: 320px;
+    height: 560px;
+}
+
+.gameboy > canvas {
+    position: absolute;
+    top: 52px;
+    left: 66px;
+    opacity: 1;
+}
+
+.gameboy > img {
+    position: absolute;
+    width: 100%;
 }
